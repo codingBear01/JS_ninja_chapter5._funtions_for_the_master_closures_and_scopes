@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>timer</title>
+  </head>
+
+  <body>
+    <div id="box1">First Box</div>
+  </body>
+  <script>
+    function animateIt(elementId) {
+      const el = document.querySelector(`#${elementId}`);
+      let tick = 0;
+
+      const timer = setInterval(function () {
+        if (tick < 100) {
+          el.style.left = el.style.top = tick + 'px';
+          tick++;
+        } else {
+          clearInterval(timer);
+        }
+
+        if (tick === 100) console.log('Tick accessed via a closure.');
+      }, 10);
+    }
+
+    animateIt('box1');
+  </script>
+</html>
